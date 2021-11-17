@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - african Food {% endblock %}
+
+{% block content  %}
+    <a href="{{ path('acount_address_add_new') }}" class="btn btn-info btn-sm float-end">Ajouter une adresse</a>
+    <h1>Mes adresses </h1>
+    <a href="{{ path('account') }}">Retourner à mon compte</a><br>
+    c'est ici que vous aller pouvoir gérer toutes vos adresses. <hr>
+        {% if app.user.addresses | length ==0 %}
+            <p class="text-center">
+                Vous n'avez pas encore ajouter d'adresse dans votre compte client. Pour en ajouter une, veuillez <a href="{{ path('acount_address_add_new') }}">Cliquer ici. </a>
+            </p>
+        {% else %}
+            afficher mes adresses
+        {% endif %}
+
+
+
+{% endblock %}

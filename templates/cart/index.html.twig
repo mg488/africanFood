@@ -52,9 +52,17 @@
         {% endfor %}
         </tbody>
     </table>
-    <div class="text-right mb-4">
-        <b>Nombre de Produits : </b>{{ cart|length }}<br>
-        <b>Total :</b> {{ (total/100) | number_format(2,',','.') }} €
+
+    <div class="row">
+        <div class="col-sm-12 offset-9">
+            <b>Nombre : </b>{{ cart|length }}<br>
+            <b >Total :</b> <b class="text-danger">{{ (total/100) | number_format(2,',','.') }} €</b>
+        </div>
     </div>
-    <a href="" class="btn btn-info mb-3">Valider mon panier</a>
+    <br/>
+    <div class="row">
+        <div class="col-sm-12 offset-10">
+        <a href="" class="btn btn-info mb-3">Valider mon panier</a>
+        </div>
+    </div>
 {% endblock %}
