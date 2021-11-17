@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier - African Food{% endblock %}
+
+{% block content %}
+    <h1>Mon panier</h1>
+    Retrouvez l'ensemble des produits que vous avez ajouté à votre panier. <br>
+
+    <table class="table mt-3">
+        <thead>
+        <tr>
+            <th scope="col">Produit</th>
+            <th scope="col"></th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Total</th>
+            <th scope="col"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% set total= null %}
+        {% for product in cart %}
+        <tr>
+            <th>
+                <img src="/africanFood/public/uploads/{{ product.product.illustration }}" height="75px"alt="{{ product.product.name  }}">
+
+            </th>
+            <td>
+                {{ product.product.name | capitalize}}<br>
+                <small>{{ product.product.subtitle }}</small>
+            </td>
+            <td>
+                <a href="{{ path('decrease_product_quantity',{id:product.product.id}) }}">
+                    <img src="{{  asset('/africanFood/public/assets/img/minus.jpg')}}" height="12px" alt="diminuer le nombre de produit">
+                </a>
+                x {{ product.quatity}}
+                <a href="{{ path('add_to_cart',{'id': product.product.id}) }}">
+                    <img src="{{  asset('/africanFood/public/assets/img/plus.jpg')}}" height="12px" alt="augmenter le nombre de produit">
+                </a>
+            </td>
+            <td>{{ (product.product.price /100) | number_format(2,',','.') }} €</td>
+            <td>{{ (product.quatity * (product.product.price /100)) | number_format(2,',','.') }} €</td>
+            <td>
+                <a href="{{ path('delete_product_to_cart',{'id':product.product.id }) }}">
+                    <img src="{{  asset('/africanFood/public/assets/img/delete.jpg')}}" height="20px" alt="supprimer mon produit">
+                </a>
+
+            </td>
+        </tr>
+            {% set total= total+ (product.quatity * (product.product.price)) %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-right mb-4">
+        <b>Nombre de Produits : </b>{{ cart|length }}<br>
+        <b>Total :</b> {{ (total/100) | number_format(2,',','.') }} €
+    </div>
+    <a href="" class="btn btn-info mb-3">Valider mon panier</a>
+{% endblock %}
