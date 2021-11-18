@@ -12,9 +12,23 @@
                 Vous n'avez pas encore ajouter d'adresse dans votre compte client. Pour en ajouter une, veuillez <a href="{{ path('acount_address_add_new') }}">Cliquer ici. </a>
             </p>
         {% else %}
-            afficher mes adresses
+            <div class="row">
+                {% for address in app.user.addresses %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            {# <img class="card-img-top" src="..." alt="Card image cap"> #}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ address.name }}</h5>
+                                <p class="card-text">
+                                    {{ address.address }}<br>
+                                    {{ address.postal }} - {{ address.city }} - {{ address.country }}
+                                </p>
+                                <a href="{{ path('acount_address_edit',{'id':address.id}) }}">Modifier</a> |  <a href="#">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         {% endif %}
-
-
 
 {% endblock %}
