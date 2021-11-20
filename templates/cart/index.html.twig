@@ -54,7 +54,7 @@
     </table>
 
     <div class="row">
-        <div class="col-sm-12 offset-9">
+        <div class="col-sm-12 my-2 offset-10">
             <b>Nombre : </b>{{ cart|length }}<br>
             <b >Total :</b> <b class="text-danger">{{ (total/100) | number_format(2,',','.') }} €</b>
         </div>
@@ -62,7 +62,7 @@
     <br/>
     <div class="row">
         <div class="col-sm-12 offset-10">
-        <a href="" class="btn btn-info mb-3">Valider mon panier</a>
+        <a href="" class="btn btn-info mb-3 mx-1">Valider mon panier</a>
         </div>
     </div>
 {% endblock %}

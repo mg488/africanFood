@@ -15,7 +15,7 @@
             <div class="row">
                 {% for address in app.user.addresses %}
                     <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" >
                             {# <img class="card-img-top" src="..." alt="Card image cap"> #}
                             <div class="card-body">
                                 <h5 class="card-title">{{ address.name }}</h5>
@@ -23,7 +23,7 @@
                                     {{ address.address }}<br>
                                     {{ address.postal }} - {{ address.city }} - {{ address.country }}
                                 </p>
-                                <a href="{{ path('acount_address_edit',{'id':address.id}) }}">Modifier</a> |  <a href="#">Supprimer</a>
+                                <a href="{{ path('acount_address_edit',{'id':address.id}) }}">Modifier</a> |  <a href="{{ path('acount_address_delete',{ 'id':address.id}) }}">Supprimer</a>
                             </div>
                         </div>
                     </div>
