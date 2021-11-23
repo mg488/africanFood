@@ -14,12 +14,18 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter</h1>
-    <label for="inputEmail">Votre Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" laceholder="votre eadresse mail" autocomplete="email" required autofocus>
-    <label for="inputPassword">Votre Mot de Passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="votre mot de passe" autocomplete="current-password" required>
+    <h1 class="h3 mb-3 font-weight-normal display-4">Merci de vous connecter</h1>
+    <hr>
 
+    <div class="row pt-5 mx-auto">
+        <div class="col-lg-2"><label for="inputEmail">Votre Email :</label></div>
+        <div class="col-lg-6"><input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" laceholder="votre eadresse mail" autocomplete="email" required autofocus></div>
+    </div>
+    <div class="row pt-2 mx-auto">
+        <div class="col-lg-2"><label for="inputPassword">Votre Mot de Passe : </label></div>
+        <div class="col-lg-6"><input type="password" name="password" id="inputPassword" class="form-control" placeholder="votre mot de passe" autocomplete="current-password" required></div>
+
+    </div>
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
@@ -34,9 +40,10 @@
             </label>
         </div>
     #}
-    <hr>
-    <button class="btn btn-lg btn-primary btn-sm" type="submit">
+    <div class="float-right">
+    <button class="btn btn-outline-info btn-sm mt-3 mb-5 offset-7" type="submit">
         Se connecter
-    </button>
+    </button></div>
+    <hr>
 </form>
 {% endblock content %}

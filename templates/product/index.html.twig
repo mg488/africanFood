@@ -5,12 +5,14 @@
 {% block content %}
     <div class="row">
         <div class="col-md-3">
-            <h3>Filtrer </h3>
+            <h3 class="display-4 pb-3">Filtrer </h3>
+            <hr>
             {{ form(form) }}
 
         </div>
         <div class="col-md-9">
-            <h1>Nos Produits</h1>
+            <h1 class="text-capitalize display-4 pb-3">Nos Poduits</h1>
+            <hr>
             <div class="row product-container">
                 {% for product in products %}
                     <div class="col-md-4">

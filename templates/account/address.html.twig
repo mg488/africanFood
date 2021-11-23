@@ -3,10 +3,11 @@
 {% block title %}Mes adresses - african Food {% endblock %}
 
 {% block content  %}
-    <a href="{{ path('acount_address_add_new') }}" class="btn btn-info btn-sm float-end">Ajouter une adresse</a>
-    <h1>Mes adresses </h1>
-    <a href="{{ path('account') }}">Retourner à mon compte</a><br>
-    c'est ici que vous aller pouvoir gérer toutes vos adresses. <hr>
+    <a href="{{ path('acount_address_add_new') }}" class="btn btn-outline-info btn-sm float-end">Ajouter une adresse</a>
+    <h1 class="display-4 pb-3">Mes adresses </h1>
+    <hr>
+    <a class="mb-3" href="{{ path('account') }}">Retourner à mon compte</a><br>
+    C'est ici que vous aller pouvoir gérer toutes vos adresses. <hr>
         {% if app.user.addresses | length ==0 %}
             <p class="text-center">
                 Vous n'avez pas encore ajouter d'adresse dans votre compte client. Pour en ajouter une, veuillez <a href="{{ path('acount_address_add_new') }}">Cliquer ici. </a>
@@ -18,7 +19,7 @@
                         <div class="card" >
                             {# <img class="card-img-top" src="..." alt="Card image cap"> #}
                             <div class="card-body">
-                                <h5 class="card-title">{{ address.name }}</h5>
+                                <h5 class="card-title">{{ address.name | capitalize}}</h5>
                                 <p class="card-text">
                                     {{ address.address }}<br>
                                     {{ address.postal }} - {{ address.city }} - {{ address.country }}

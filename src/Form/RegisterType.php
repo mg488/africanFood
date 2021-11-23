@@ -24,7 +24,8 @@ class RegisterType extends AbstractType
                     'min'=>2,
                     'max'=>30]),
                 'attr' =>[
-                    'placeholder'=>'merci de saisir votre prénom'
+                    'placeholder'=>'merci de saisir votre prénom',
+                    'class'=>'mt-2 mb-3'
                 ]
             ])
             ->add('lastname', TextType::class,[
@@ -33,7 +34,8 @@ class RegisterType extends AbstractType
                     'min'=>2,
                     'max'=>30]),
                 'attr'=>[
-                    'placeholder'=>'merci de saisir votre nom'
+                    'placeholder'=>'merci de saisir votre nom',
+                    'class'=>'mt-2 mb-3'
                 ]
             ])
             ->add('email',EmailType::class,[
@@ -42,7 +44,8 @@ class RegisterType extends AbstractType
                     'min'=>2,
                     'max'=>60]),
                 'attr'=>[
-                    'placeholder'=>'merci de saisir votre email'
+                    'placeholder'=>'merci de saisir votre email',
+                    'class'=>'mt-2 mb-3'
                 ]
             ])
             ->add('password',RepeatedType::class,[
@@ -51,11 +54,13 @@ class RegisterType extends AbstractType
                 'required'=>true,
                 'first_options'=>['label'=>'Mot de passe',
                                   'attr'=>[
-                                      'placeholder'=>'Saisir votre mot de passe']
+                                      'placeholder'=>'Saisir votre mot de passe',
+                                      'class'=>'mt-2 mb-3']
                                     ],
                 'second_options'=>['label'=>'Confirmez Votre Mot de passe',
                                 'attr'=>[
-                                    'placeholder'=>'Confirmez votre mot de passe']
+                                    'placeholder'=>'Confirmez votre mot de passe',
+                                    'class'=>'mt-2 mb-3']
                                     ],
                 'attr'=>[
                     'placeholder'=>'merci de saisir un mot de passe',
@@ -63,7 +68,10 @@ class RegisterType extends AbstractType
             ])
 
             ->add('submit',SubmitType::class,[
-                'label'=>'Valider'
+                'label'=>'Valider',
+                'attr'=>[
+                    'class'=>'btn btn-outline-info mt-3 float-end'
+                ]
             ]);
     }
 
