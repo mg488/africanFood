@@ -56,3 +56,8 @@ padding-left: 20px ;
 .address-icon-add{
     text-align: right;
 }
+
+.block-small{
+    max-width: 600px;
+    margin: 0 auto;
+}
