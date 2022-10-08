@@ -43,13 +43,13 @@
             <td>{{ (product.product.price /100) | number_format(2,',','.') }} €</td>
             <td>{{ (product.quatity * (product.product.price /100)) | number_format(2,',','.') }} €</td>
             <td>
-                <a href="{{ path('delete_product_to_cart',{'id':product.product.id }) }}">
+                <a href="{{ path('delete_product_to_cart',{'id': product.product.id }) }}">
                     <img src="{{  asset('/africanFood/public/assets/img/delete.jpg')}}" height="20px" alt="supprimer mon produit">
                 </a>
 
             </td>
         </tr>
-            {% set total= total+ (product.quatity * (product.product.price)) %}
+            {% set total= total + (product.quatity * (product.product.price)) %}
         {% endfor %}
         </tbody>
     </table>
@@ -63,7 +63,7 @@
     <br/>
     <div class="row">
         <div class="col-sm-12 offset-10">
-        <a href="{{ path('order') }}" class="btn btn-outline-info mb-3 mx-1 ">Valider mon panier</a>
+        <a href="{{ path('order') }}" class="btn btn-success mb-3 mx-1 ">Valider mon panier</a>
         </div>
     </div>
 {% endblock %}

@@ -22,7 +22,8 @@ class SearchType extends AbstractType{
                 'required'=>false,
                 'attr'=>[
                     'placeholder'=> 'Votre recherche par produit',
-                    'class'=>'form-control-sm'
+                    'class'=>'form-control-sm',
+                    'style' => 'margin-top:60px'
                 ]
             ])
             ->add('categories',EntityType::class,[
@@ -30,12 +31,16 @@ class SearchType extends AbstractType{
                 'required'=>false,
                 'class'=>Category::class,
                 'multiple' =>true,
-                'expanded' =>true
+                'expanded' =>true,
+                'attr'=>[
+                    'style' => 'margin-top:10px'
+                ]
             ])
             ->add('submit',SubmitType::class,[
                 'label'=>'Filtrer',
                 'attr' =>[
-                    'class' =>'btn-block btn-info'
+                    'class' =>'btn-block btn-info',
+                    'style' => 'margin-top:10px'
                 ]
             ])
         ;
