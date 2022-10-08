@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Address;
+use App\Classe\Cart;
 use App\Form\AddressType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +34,7 @@ class AcountAddressController extends AbstractController
     /**
      * @Route("/compte/ajouter-une-adresse", name="acount_address_add_new")
      */
-    public function addNewAddressAction(Request $request): Response
+    public function addNewAddressAction(Cart $cart, Request $request): Response
     {
         $address = new Address();
         $form = $this->createForm(AddressType::class,$address);
@@ -46,6 +47,10 @@ class AcountAddressController extends AbstractController
             $address->setUser($this->getUser());
             $this->entityManager->persist($address);
             $this->entityManager->flush();
+            if($cart->getCart()){
+                return $this->redirectToRoute('order');
+            }
+
             return $this->redirectToRoute('acount_address');
         }
         return $this->render('account/address_form_new.html.twig',[

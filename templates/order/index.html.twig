@@ -4,16 +4,36 @@
 
 {% block content %}
 <h2>Je passe ma commande</h2>
-<p>choissier votre préférence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, enim eos magni nesciunt non nostrum quae. Blanditiis commodi est natus possimus sunt tempora totam! Accusamus animi aperiam aut beatae consequatur debitis deleniti distinctio, doloremque eligendi est, exercitationem fugiat fugit illum iste magni nesciunt nisi nostrum officiis omnis optio provident quae quas quasi quia ratione rem repellendus rerum sequi temporibus unde. Ab, ad animi atque autem deleniti dolorum ducimus excepturi explicabo facilis in incidunt iure, magni minima molestiae nulla pariatur provident, quaerat quibusdam quo rem repellat repellendus reprehenderit sunt tenetur?</p>
+<p>Choissez votre préférence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, enim eos magni nesciunt non nostrum quae. Blanditiis commodi est natus possimus sunt tempora totam! Accusamus animi aperiam aut beatae consequatur debitis deleniti distinctio, doloremque eligendi est, exercitationem fugiat fugit illum iste magni nesciunt nisi nostrum officiis omnis optio provident quae quas quasi quia ratione rem repellendus rerum sequi temporibus unde. Ab, ad animi atque autem deleniti dolorum ducimus excepturi explicabo facilis in incidunt iure, magni minima molestiae nulla pariatur provident, quaerat quibusdam quo rem repellat repellendus reprehenderit sunt tenetur?</p>
 <hr>
     <div class="row">
         <div class="col-md-6">
-            <b>chossir mon addresse de livraison</b><br>
-            <b>chossir mon transporteurpour la livraison</b>
+            {%  set formHtml %}
+                {{ form(form) }}
+            {% endset %}
+            {{ formHtml | replace ({'[br]' : '<br>'}) | raw }}
         </div>
         <div class="col-md-6">
-            <b>recap de a commande</b><br>
-            <b>Bouton pour payer</b>
+            <div class="text-center">
+                <b>Récap de a commande</b><br>
+                <p>Retrouvez le récapitulatif de vos produits.</p>
+            </div>
+            <div class="order-summary">
+                {% for key, product in cart %}
+                    <div class="row {% if key > 0 %} mt-2 {% endif %}">
+                        <div class="col-3">
+                            <img src="/africanFood/public/uploads/{{ product.product.illustration }}" height="75px"alt="{{ product.product.name  }}">
+                        </div>
+                        <div class="col-7 my-auto">
+                            {{ product.product.name }} <br>
+                            <small>{{ product.product.subtitle  }}</small>
+                        </div>
+                        <div class="col-2">
+                            x {{ product.quatity }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

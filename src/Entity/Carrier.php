@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CarrierRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Intl\Currencies;
 /**
  * @ORM\Entity(repositoryClass=CarrierRepository::class)
  */
@@ -49,6 +49,11 @@ class Carrier
         return $this;
     }
 
+    public function __toString()
+    {
+
+        return $this->getName() .'[br]'. $this->getDescription() .'[br]'. number_format($this->getPrice(),2,',',',') . ' ' .Currencies::getSymbol('EUR');;
+    }
     public function getDescription(): ?string
     {
         return $this->description;

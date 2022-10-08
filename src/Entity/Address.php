@@ -90,6 +90,10 @@ class Address
         return $this->name;
     }
 
+    public function __toString()
+    {
+        return $this->getName() .'[br]'. $this->getAddress() .'[br]'. $this->getCity() .'-'. $this->getCountry();
+    }
     public function setName(string $name): self
     {
         $this->name = $name;
