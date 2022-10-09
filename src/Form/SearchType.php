@@ -39,7 +39,7 @@ class SearchType extends AbstractType{
             ->add('submit',SubmitType::class,[
                 'label'=>'Filtrer',
                 'attr' =>[
-                    'class' =>'btn btn-success',
+                    'class' =>'btn btn-success col-12',
                     'style' => 'margin-top:10px'
                 ]
             ])
