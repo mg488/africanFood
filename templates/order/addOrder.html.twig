@@ -3,16 +3,13 @@
 {% block title %}Valider ma commande - African Food{% endblock %}
 
 {% block content %}
-<h2>Je passe ma commande</h2>
-<p>Choissez votre préférence Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, enim eos magni nesciunt non nostrum quae. Blanditiis commodi est natus possimus sunt tempora totam! Accusamus animi aperiam aut beatae consequatur debitis deleniti distinctio, doloremque eligendi est, exercitationem fugiat fugit illum iste magni nesciunt nisi nostrum officiis omnis optio provident quae quas quasi quia ratione rem repellendus rerum sequi temporibus unde. Ab, ad animi atque autem deleniti dolorum ducimus excepturi explicabo facilis in incidunt iure, magni minima molestiae nulla pariatur provident, quaerat quibusdam quo rem repellat repellendus reprehenderit sunt tenetur?</p>
-<hr>
+    <h2>Mon Récapitulatif commande</h2>
+    <p>Vérifiez vos informations avant de payer votre commande.</p>
+    <hr>
     <div class="row">
         <div class="col-md-6">
-            {%  set formHtml %}
-                {{ form_start(form, {action:path('order_recapitulatif')}) }}
-                {{ form_end(form) }}
-            {% endset %}
-            {{ formHtml | replace ({'[br]' : '<br>'}) | raw }}
+          Mon addresse de livraison <br>
+          Mon Transporteur
         </div>
         <div class="col-md-6">
             <div class="text-center">
@@ -35,6 +32,7 @@
                     </div>
                 {% endfor %}
             </div>
+            <a href="" class="btn btn-success col-12 mt-3 m-4">Payer</a>
         </div>
     </div>
 
